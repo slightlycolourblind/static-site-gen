@@ -1,5 +1,5 @@
 from textnode import TextNode, TextType
-from htmlnode import HTMLNode, LeafNode
+from htmlnode import HTMLNode, LeafNode, ParentNode
 
 
 def main():
@@ -17,6 +17,17 @@ def main():
     print(leafnode)
     lf = LeafNode("a", "Click me!", {"href": "https://www.google.com"}).to_html()
     print(lf)
+    node = ParentNode(
+        "p",
+        [
+            LeafNode("b", "Bold text"),
+            LeafNode(None, "Normal text"),
+            LeafNode("i", "italic text"),
+            LeafNode(None, "Normal text"),
+        ],
+    )
+
+    print("parentnondehtml", node.to_html())
 
 
 if __name__ == "__main__":
